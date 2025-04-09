@@ -655,9 +655,13 @@
       "services": {
         "group": "External Services",
         "description": "Manage the external services that Aonsoku can access.",
-        "lrclib": {
-          "info": "LRCLIB is used to find song lyrics.",
-          "label": "LRCLIB"
+        "searchLyric": {
+          "info": "Enable lyric web search.",
+          "label": "Search lyrics"
+        },
+        "lyricProviders": {
+          "info": "Select a lyric provider.",
+          "label": "Lyric Provider"
         }
       }
     },

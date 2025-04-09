@@ -81,9 +81,15 @@ interface ILyrics {
   setPreferSyncedLyrics: (value: boolean) => void
 }
 
+export const LyricProviderList = ["lrclib", "netease"] as const;
+
+type LyricProviderType = typeof LyricProviderList[number];
+
 export interface IPrivacySettings {
-  lrcLibEnabled: boolean
-  setLrcLibEnabled: (value: boolean) => void
+  lyricSearchEnabled: boolean
+  lyricProvider: LyricProviderType
+  setLyricSearchEnabled: (value: boolean) => void
+  setLyricProvider: (value: LyricProviderType) => void
 }
 
 interface IBlurSettings {

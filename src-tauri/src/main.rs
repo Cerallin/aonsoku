@@ -18,6 +18,7 @@ extern crate objc;
 mod mac;
 
 mod commands;
+mod netease;
 mod progress;
 mod utils;
 
@@ -63,7 +64,11 @@ async fn main() {
 
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![commands::download_file])
+        .invoke_handler(tauri::generate_handler![
+            commands::download_file,
+            netease::fetch_lyrics,
+            netease::search_songs,
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

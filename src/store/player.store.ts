@@ -55,10 +55,16 @@ export const usePlayerStore = createWithEqualityFn<IPlayerContext>()(
           },
           settings: {
             privacy: {
-              lrcLibEnabled: true,
-              setLrcLibEnabled(value) {
+              lyricSearchEnabled: true,
+              lyricProvider: "lrclib",
+              setLyricSearchEnabled(value) {
                 set((state) => {
-                  state.settings.privacy.lrcLibEnabled = value
+                  state.settings.privacy.lyricSearchEnabled = value
+                })
+              },
+              setLyricProvider(value) {
+                set((state) => {
+                  state.settings.privacy.lyricProvider = value
                 })
               },
             },
@@ -678,7 +684,7 @@ export const usePlayerStore = createWithEqualityFn<IPlayerContext>()(
               // Update index to fit new current list
               const updatedCurrentIndex = Math.min(
                 currentSongIndex -
-                  (removedSongIndex < currentSongIndex ? 1 : 0),
+                (removedSongIndex < currentSongIndex ? 1 : 0),
                 newCurrentList.length - 1,
               )
 
@@ -688,7 +694,7 @@ export const usePlayerStore = createWithEqualityFn<IPlayerContext>()(
               )
               const updatedOriginalIndex = Math.min(
                 originalSongIndex -
-                  (removedOriginalIndex < originalSongIndex ? 1 : 0),
+                (removedOriginalIndex < originalSongIndex ? 1 : 0),
                 newOriginalList.length - 1,
               )
 
